@@ -46,5 +46,5 @@ console.log(result);
 
 ## 📝 License
 
-This project is licensed under the **MIT License**, and contains portions based on the original jalaali-js (MIT).  
+This project is licensed under the **MIT License**, and contains portions based on the original [`jalaali-js`](https://github.com/jalaali/jalaali-js) (MIT).  
 See the `LICENSE` file for details.

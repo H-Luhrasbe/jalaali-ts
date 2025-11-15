@@ -32,7 +32,7 @@ jobs:
 
       # 5️⃣ Check formatting with Prettier
       - name: Format check
-        run: npx prettier --check "src/**/*.ts" "test/**/*.ts"
+        run: npm run format:check
 
       # 6️⃣ Build TypeScript library
       - name: Build
@@ -41,4 +41,4 @@ jobs:
       # 7️⃣ Run tests
       - name: Test
         run: npm test
-        continue-on-error: true
+        continue-on-error: false
