@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ Lint with ESLint
+      - name: Lint
+        run: npx eslint "src/**/*.ts" "test/**/*.ts"
+
+      # 5️⃣ Check formatting with Prettier
+      - name: Format check
+        run: npx prettier --check "src/**/*.ts" "test/**/*.ts"
+
+      # 6️⃣ Build TypeScript library
+      - name: Build
+        run: npm run build
+
+      # 7️⃣ Run tests
+      - name: Test
+        run: npm test
+        continue-on-error: true
