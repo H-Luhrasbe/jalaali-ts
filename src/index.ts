@@ -193,9 +193,8 @@ function jalCal(jy: number, withoutLeap?: boolean): JalCalResult {
   let leapJ = -14;
 
   let jp = breaks[0] as number;
-  const breaksLastItem = breaks[bl - 1] as number;
 
-  if (jy < jp || jy >= breaksLastItem) throw new Error('Invalid Jalaali year ' + jy);
+  if (jy < jp || jy >= (breaks[bl - 1] as number)) throw new Error('Invalid Jalaali year ' + jy);
 
   let jump = 0;
   let jm: number;
@@ -375,11 +374,11 @@ function jalaaliToDateObject(
  */
 function jalaaliWeek(jy: number, jm: number, jd: number): JalaaliWeek {
   const dayOfWeek = jalaaliToDateObject(jy, jm, jd).getDay();
-  const startDiff = dayOfWeek === 6 ? 0 : -(dayOfWeek + 1);
-  const endDiff = 6 + startDiff;
+  const startDayDifference = dayOfWeek === 6 ? 0 : -(dayOfWeek + 1);
+  const endDayDifference = 6 + startDayDifference;
   return {
-    saturday: d2j(j2d(jy, jm, jd + startDiff)),
-    friday: d2j(j2d(jy, jm, jd + endDiff)),
+    saturday: d2j(j2d(jy, jm, jd + startDayDifference)),
+    friday: d2j(j2d(jy, jm, jd + endDayDifference)),
   };
 }
 
@@ -398,7 +397,7 @@ function jalaaliWeek(jy: number, jm: number, jd: number): JalaaliWeek {
  * div(7, 3); // 2
  */
 function div(a: number, b: number): number {
-  return Math.trunc(a / b);
+  return ~~(a / b);
 }
 
 /**
@@ -411,7 +410,7 @@ function div(a: number, b: number): number {
  * mod(7, 3); // 1
  */
 function mod(a: number, b: number): number {
-  return a - Math.trunc(a / b) * b;
+  return a - ~~(a / b) * b;
 }
 
 /**
@@ -427,9 +426,8 @@ function jalCalLeap(jy: number): number {
 
   const bl = breaks.length;
   let jp = breaks[0] as number;
-  const breaksLastItem = breaks[bl - 1] as number;
 
-  if (jy < jp || jy >= breaksLastItem) throw new Error('Invalid Jalaali year ' + jy);
+  if (jy < jp || jy >= (breaks[bl - 1] as number)) throw new Error('Invalid Jalaali year ' + jy);
 
   let jm: number;
   let jump = 0;
