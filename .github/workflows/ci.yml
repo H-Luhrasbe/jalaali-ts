@@ -28,7 +28,7 @@ jobs:
 
       # 4️⃣ Lint with ESLint
       - name: Lint
-        run: npx eslint "src/**/*.ts" "test/**/*.ts"
+        run: npm run lint
 
       # 5️⃣ Check formatting with Prettier
       - name: Format check
