@@ -1,6 +1,6 @@
 {
   "name": "jalaali-ts",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A strict, clean TypeScript implementation of jalaali-js, offering reliable conversion between Jalaali (Persian) and Gregorian calendars with modern module support. Based on the original MIT-licensed jalaali-js algorithm.",
   "type": "module",
   "main": "./dist/index.cjs",
