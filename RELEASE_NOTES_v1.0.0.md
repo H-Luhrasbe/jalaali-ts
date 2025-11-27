@@ -1,4 +1,4 @@
-# v1.0.0 – Initial Release (Maintenance Version)
+# v1.0.0 – Initial Release (Original Version)
 
 This is the first official release of **jalaali-ts**, a TypeScript port of the original jalaali-js library.
 
@@ -11,7 +11,7 @@ This is the first official release of **jalaali-ts**, a TypeScript port of the o
 - Build pipeline with TypeScript & npm
 
 ## Notes
-This version is tagged as a **maintenance** version (`v1-maintenance`).
+This version is tagged as a **original** version (`v1-original`).
 It preserves backward compatibility while preparing for major improvements coming in v2.
 
 ## Compatibility

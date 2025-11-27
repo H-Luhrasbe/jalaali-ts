@@ -32,5 +32,5 @@ Potential additions:
 - `compareJalaali(a, b)`
 
 ## Branch Strategy
-- `v1-maintenance` → stays API-compatible forever
+- `v1-original` → stays API-compatible forever
 - `v2` → main development branch for cleaner API
