@@ -65,8 +65,9 @@
   "homepage": "https://github.com/H-Luhrasbe/jalaali-ts#readme",
   "files": [
     "dist",
-    "README.md",
-    "LICENSE"
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
   ],
   "author": "Haddi (Hirrad) Luhrasbe <haddi.luhrasbe@gmail.com>",
   "license": "MIT",
