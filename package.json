@@ -17,7 +17,8 @@
     "lint": "eslint src/**/*.ts test/**/*.ts",
     "format": "prettier --write src/**/*.ts test/**/*.ts",
     "format:check": "prettier --check src/**/*.ts test/**/*.ts",
-    "test": "vitest"
+    "test": "vitest",
+    "prepare": "set PATH=%PATH%;C:\\Program Files\\Git\\cmd && husky"
   },
   "repository": {
     "type": "git",
@@ -72,9 +73,12 @@
   "author": "Haddi (Hirrad) Luhrasbe <haddi.luhrasbe@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "20.2.0",
+    "@commitlint/config-conventional": "20.2.0",
     "@eslint/js": "9.39.1",
     "@types/node": "24.10.1",
     "eslint": "9.39.1",
+    "husky": "9.1.7",
     "prettier": "3.6.2",
     "typescript": "5.9.3",
     "typescript-eslint": "8.46.4",

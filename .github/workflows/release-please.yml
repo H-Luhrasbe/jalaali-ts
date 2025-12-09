@@ -1,0 +1,35 @@
+name: Release Please
+
+changelog:
+  categories:
+    - title: 🚀 Features
+      labels: ["feat"]
+    - title: 🐛 Fixes
+      labels: ["fix"]
+    - title: 🧹 Refactors
+      labels: ["refactor"]
+    - title: 📚 Docs
+      labels: ["docs"]
+    - title: 🧪 Tests
+      labels: ["test"]
+    - title: 🔧 Build System
+      labels: ["build"]
+    - title: 🛠 Chores
+      labels: ["chore"]
+  exclude:
+    labels: ["ignore-release", "skip-changelog"]
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+          package-name: jalaali-ts

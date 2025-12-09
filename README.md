@@ -1,3 +1,8 @@
+![npm](https://img.shields.io/npm/v/jalaali-ts)
+![CI](https://github.com/h-luhrasbe/jalaali-ts/actions/workflows/ci.yml/badge.svg)
+![npm downloads](https://img.shields.io/npm/dm/jalaali-ts)
+![license](https://img.shields.io/github/license/H-Luhrasbe/jalaali-ts)
+
 # jalaali-ts
 
 A strict, clean TypeScript port of the original [`jalaali-js`](https://github.com/jalaali/jalaali-js) library, providing accurate conversion between **Jalaali (Persian)** and **Gregorian** calendar dates with modern module support. Based on the original MIT-licensed [`jalaali-js`](https://github.com/jalaali/jalaali-js) algorithm.
