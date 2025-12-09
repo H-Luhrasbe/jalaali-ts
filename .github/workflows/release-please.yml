@@ -28,5 +28,5 @@ jobs:
       - name: Release Please
         uses: google-github-actions/release-please-action@v4
         with:
-          config-file: .github/workflow/release-please-config.json
+          config-file: .github/configs/release-please-config.json
           token: ${{ secrets.GITHUB_TOKEN }}
