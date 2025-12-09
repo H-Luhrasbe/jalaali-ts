@@ -1,35 +1,59 @@
-name: Release Please
-
-changelog:
-  categories:
-    - title: 🚀 Features
-      labels: ["feat"]
-    - title: 🐛 Fixes
-      labels: ["fix"]
-    - title: 🧹 Refactors
-      labels: ["refactor"]
-    - title: 📚 Docs
-      labels: ["docs"]
-    - title: 🧪 Tests
-      labels: ["test"]
-    - title: 🔧 Build System
-      labels: ["build"]
-    - title: 🛠 Chores
-      labels: ["chore"]
-  exclude:
-    labels: ["ignore-release", "skip-changelog"]
+name: release-please
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   release:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      # 1️⃣ Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Set up Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: "lts/*"
+
+      # 3️⃣ Run Release Please
+      - name: Release Please
+        uses: google-github-actions/release-please-action@v5
+        with:
           release-type: node
           package-name: jalaali-ts
+          changelog-path: CHANGELOG.md
+          bump-minor-pre-major: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          changelog:
+            categories:
+              - title: 🔧 Build System
+                labels: ["build"]
+              - title: 🛠 Chores
+                labels: ["chore"]
+              - title: ⚡ CI
+                labels: ["ci"]
+              - title: 📚 Docs
+                labels: ["docs"]
+              - title: 🚀 Features
+                labels: ["feat"]
+              - title: 🐛 Fixes
+                labels: ["fix"]
+              - title: 🎯 Performance
+                labels: ["perf"]
+              - title: 🧹 Refactors
+                labels: ["refactor"]
+              - title: 🎨 Styles
+                labels: ["style"]
+              - title: 🧪 Tests
+                labels: ["test"]
+            exclude:
+              labels: ["ignore-release", "skip-changelog"]
