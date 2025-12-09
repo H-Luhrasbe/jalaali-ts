@@ -26,7 +26,7 @@ jobs:
 
       # 3️⃣ Run Release Please
       - name: Release Please
-        uses: google-github-actions/release-please-action@v4
+        uses: googleapis/release-please-action@v4
         with:
-          config-file: .github/configs/release-please-config.json
+          config-file: .github/workflows/.release-please-config.json
           token: ${{ secrets.GITHUB_TOKEN }}
